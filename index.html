@@ -1,43 +1,240 @@
-Welcome to the Fun Button Website!
-Google
-Founded: 1998
-Turnover: $182 billion
-Employees: 139,995
-Strength: Comprehensive search results and integration with numerous services.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Button Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-Bing
-Founded: 2009
-Turnover: $8.53 billion
-Employees: 5,000
-Strength: Rewards program and image search capabilities.
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #ffffff; /* Changed to white background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            margin-top: 30px;
+            color: #444;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            position: relative; /* Required for tooltip positioning */
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button.google {
+            background-color: #4285F4;
+        }
+        .button.google:hover {
+            background-color: #357ae8;
+        }
+        .button.bing {
+            background-color: #008373;
+        }
+        .button.bing:hover {
+            background-color: #00685f;
+        }
+        .button.yahoo {
+            background-color: #6001d2;
+        }
+        .button.yahoo:hover {
+            background-color: #4b01a9;
+        }
+        .button.duckduckgo {
+            background-color: #DE5833;
+        }
+        .button.duckduckgo:hover {
+            background-color: #c94b2c;
+        }
+        .button.baidu {
+            background-color: #2932E1;
+        }
+        .button.baidu:hover {
+            background-color: #2029b3;
+        }
+        .button.yandex {
+            background-color: #FF0000;
+        }
+        .button.yandex:hover {
+            background-color: #cc0000;
+        }
+        .button.ecosia {
+            background-color: #78B142;
+        }
+        .button.ecosia:hover {
+            background-color: #679a36;
+        }
+        .button.qwant {
+            background-color: #1E73BE;
+        }
+        .button.qwant:hover {
+            background-color: #165a92;
+        }
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+        .button:active {
+            transform: scale(1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .tooltip {
+            visibility: hidden;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 130%; /* Position above the button */
+            left: 50%;
+            margin-left: -125px; /* Center the tooltip */
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s; /* Smooth expansion */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* Arrow at the bottom */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
+        .button:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1.05); /* Expand with the button */
+        }
+        .logo {
+            margin-top: 10px;
+            width: 60px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Fun Button Website!</h1>
+    <div class="button-container">
+        <div class="button-wrapper">
+            <div class="button google" onclick="redirectTo('https://www.google.com')">
+                Google
+                <span class="tooltip">
+                    Founded: 1998<br>
+                    Turnover: $182 billion<br>
+                    Employees: 139,995<br>
+                    Strength: Comprehensive search results and integration with numerous services.
+                </span>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo" class="logo">
+        </div>
+        <div class="button-wrapper">
+            <div class="button bing" onclick="redirectTo('https://www.bing.com')">
+                Bing
+                <span class="tooltip">
+                    Founded: 2009<br>
+                    Turnover: $8.53 billion<br>
+                    Employees: 5,000<br>
+                    Strength: Rewards program and image search capabilities.
+                </span>
+            </div>
+            <img src="https://logowik.com/content/uploads/images/bing-new-20238212.logowik.com.webp" alt="Bing Logo" class="logo">
+        </div>
+        <div class="button-wrapper">
+            <div class="button yahoo" onclick="redirectTo('https://www.yahoo.com')">
+                Yahoo
+                <span class="tooltip">
+                    Founded: 1994<br>
+                    Turnover: $4.9 billion<br>
+                    Employees: 8,600<br>
+                    Strength: Comprehensive portal with news, email, and finance.
+                </span>
+            </div>
+            <img src="https://s.yimg.com/ny/api/res/1.2/vlvd6fw1UHI9T_3GaNPzDw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02OTI-/https://s.yimg.com/os/creatr-uploaded-images/2019-09/a929b8f0-dd65-11e9-bffe-b90463fd5188" alt="Yahoo Logo" class="logo">
+        </div>
+        <div class="button-wrapper">
+            <div class="button duckduckgo" onclick="redirectTo('https://www.duckduckgo.com')">
+                DuckDuckGo
+                <span class="tooltip">
+                    Founded: 2008<br>
+                    Turnover: $100 million<br>
+                    Employees: 149<br>
+                    Strength: Strong privacy features and no tracking of user activity.
+                </span>
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH7roGVoXNqly4q_eI1HJhW67fk4VKnDxgjudgJzpD&s" alt="DuckDuckGo Logo" class="logo">
+        </div>
+<div class="button-wrapper">
+            <div class="button baidu" onclick="redirectTo('https://www.baidu.com')">
+                Baidu
+                <span class="tooltip">
+                    Founded: 2000<br>
+                    Turnover: $16.4 billion<br>
+                    Employees: 45,887<br>
+                    Strength: Leading search engine in China with advanced AI technology.
+                </span>
+            </div>
+            <img src="https://www.baidu.com/img/bd_logo1.png" alt="Baidu Logo" class="logo">
+        </div>
+        <div class="button-wrapper">
+            <div class="button yandex" onclick="redirectTo('https://www.yandex.com')">
+                Yandex
+                <span class="tooltip">
+                    Founded: 1997<br>
+                    Turnover: $2.8 billion<br>
+                    Employees: 12,800<br>
+                    Strength: Comprehensive search engine with strong presence in Russia.
+                </span>
+            </div>
+            <img src="https://yastatic.net/s3/home/logos/share/share-logo-ru.png" alt="Yandex Logo" class="logo">
+        </div>
+        <div class="button-wrapper">
+            <div class="button ecosia" onclick="redirectTo('https://www.ecosia.org')">
+                Ecosia
+                <span class="tooltip">
+                    Founded: 2009<br>
+                    Turnover: $19.5 million<br>
+                    Employees: 75<br>
+                    Strength: Eco-friendly search engine that plants trees with ad revenue.
+                </span>
+            </div>
+            <img src="https://logowik.com/content/uploads/images/ecosia-search-engine7462.logowik.com.webp" alt="Ecosia Logo" class="logo">
+        </div>
+    </div>
 
-Yahoo
-Founded: 1994
-Turnover: $4.9 billion
-Employees: 8,600
-Strength: Comprehensive portal with news, email, and finance.
-
-DuckDuckGo
-Founded: 2008
-Turnover: $100 million
-Employees: 149
-Strength: Strong privacy features and no tracking of user activity.
-
-Baidu
-Founded: 2000
-Turnover: $16.4 billion
-Employees: 45,887
-Strength: Leading search engine in China with advanced AI technology.
-
-Yandex
-Founded: 1997
-Turnover: $2.8 billion
-Employees: 12,800
-Strength: Comprehensive search engine with strong presence in Russia.
-
-Ecosia
-Founded: 2009
-Turnover: $19.5 million
-Employees: 75
-Strength: Eco-friendly search engine that plants trees with ad revenue.
-
+    <script>
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
